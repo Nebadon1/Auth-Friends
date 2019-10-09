@@ -1,24 +1,22 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Login from './components/Login';
 import FriendList from './components/FriendList';
+import NavBar from './components/NavBar';
 import PrivateRoute from './components/PrivateRoute';
+import AddFriend from './components/AddFriend';
 
 function App() {
+
+  
   return (
     <Router>
       <div className="App">
-        <ul>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-          <li>
-            <Link to="/protected">Protected Page</Link>
-          </li>
-        </ul>
+         <NavBar/>
         <Switch>
-          <PrivateRoute exact path="/protected" component={FriendList} />
+            <PrivateRoute exact path="/protected" component={FriendList} />
+            <PrivateRoute path="/addfriend" component={AddFriend}/>
           <Route path="/login" component={Login} />
           <Route component={Login} />
         </Switch>

@@ -3,19 +3,17 @@ import { connect } from 'react-redux'
 
 import { getFriendList } from '../actions/index'
 import Friend from './Friend'
-
+import '../Friend.css'
 class FriendsList extends Component {
-  constructor(props){
-    super(props)
-  }
+ 
 
   componentDidMount(){
     this.props.getFriendList()
-  }
+   }
 
   render(){
     return (
-      <div>
+      <div className="Cards-Background">
         { this.props.loading ? <h1>LOADING</h1> : null }
 
         { this.props.error !== '' ? <h1>{this.props.error}</h1> : null }

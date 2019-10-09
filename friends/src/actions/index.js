@@ -4,8 +4,13 @@ import { axiosWithAuth } from '../utils/axiosWithAuth';
 export const GET_FRIENDS = "GET_FRIENDS"
 export const LOADING = "LOADING"
 export const ERROR = "ERROR"
+export const LOGOUT = "LOGOUT";
 
-
+  export const logout = () => dispatch => {
+    localStorage.clear();
+    localStorage.setItem('item', 'something')
+    dispatch({ type: LOGOUT })
+  }
 
 export const getFriendList = () => {
     return (dispatch) => {

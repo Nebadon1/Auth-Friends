@@ -1,0 +1,23 @@
+
+.friend-card {
+    width: 300px;
+    height: 300px;
+    background-color: #FFF;
+    margin: 25px;
+    padding: 2.25em;
+    box-sizing: border-box;
+    border: solid 1px #DDD;
+    border-radius: .5em;
+    font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+.Cards-Background{
+    width: 1170px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 100px;
+    margin: 62px auto;
+}

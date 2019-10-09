@@ -2,11 +2,12 @@ import React from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 import "../loging.css";
 
-class Login extends React.Component {
+class AddFriend extends React.Component {
    state ={
        credentials: {
-           username: '',
-           password: '',
+           name: '',
+           age: '',
+           email: '',
 
        }
    }
@@ -25,9 +26,9 @@ class Login extends React.Component {
         e.preventDefault();
         // axiosWithAuth ==> ?? an axios instance; .post() ==> ?? promise
         axiosWithAuth()
-          .post('/login', this.state.credentials)
+          .post('/friends', this.state.credentials)
           .then(res => {
-            localStorage.setItem('token', res.data.payload);
+            // localStorage.setItem('token', res.data.payload);
             // redirect to the apps main page?
             this.props.history.push('/protected');
           })
@@ -40,21 +41,28 @@ class Login extends React.Component {
     return (
       <div className="form">
         <form onSubmit={this.login}>
-        <label htmlFor="loginEmail" id="loginEmailLabel">Username</label>
+        <label htmlFor="friendName" id="friendNameLabel">Name</label>
           <input
             type="text"
-            name="username"
-            value={this.state.credentials.username}
+            name="name"
+            value={this.state.credentials.name}
             onChange={this.handleChange}
           />
-         <label htmlFor="loginPassword" id="loginPasswordLabel">Password</label>
+          <label htmlFor="loginEmail" id="loginEmailLabel">Age</label>
           <input
-            type="password"
-            name="password"
-            value={this.state.credentials.password}
+            type="text"
+            name="age"
+            value={this.state.credentials.age}
             onChange={this.handleChange}
           />
-          <button>Log in</button>
+         <label htmlFor="loginPassword" id="loginPasswordLabel">Email</label>
+          <input
+            type="email"
+            name="email"
+            value={this.state.credentials.email}
+            onChange={this.handleChange}
+          />
+          <button>Submit</button>
         </form>
       </div>
     );
@@ -62,4 +70,4 @@ class Login extends React.Component {
     
 }
 
-export default Login;
+export default AddFriend;
