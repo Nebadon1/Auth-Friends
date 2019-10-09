@@ -35,4 +35,9 @@
       "last 1 safari version"
     ]
   }
+  {
+    "scripts": {
+      "build": "my-framework build --output public"
+    }
+  }
 }
